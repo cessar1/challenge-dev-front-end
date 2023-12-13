@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="main.js"></script>
+  <script type="module" src="modelo/calculadora.js"></script>
+  <script type="module" src="modelo/modelo.js"></script>
+  <script type="module" src="controlador/controlador.js"></script>
+
+  <title>Mi Aplicación</title>
+</head>
+
+<body>
+  <h1>Compañía eléctrica</h1>
+  <h2>Agregar Usuario</h2>
+
+  <!-- Formulario para agregar clientes -->
+  <form id="clienteForm" onsubmit="handleChange()">
+    <label for="nombre">Nombre:</label>
+    <input name="nombre" id="nombre" type="text" required>
+    <label for="apellido">Apellido:</label>
+    <input name="apellido" id="apellido" type="text" required>
+    <label for="dni">Dni:</label>
+    <input name="dni" id="dni" type="text" required>
+    <label for="tipoDeDomicilio">Tipo de Domicilio:</label>
+    <select id="tipoDeDomicilio">
+      <option value="Residencial">Residencial</option>
+      <option value="Comercial">Comercial</option>
+    </select>
+    <label for="consumoKw">Consumo(Kw):</label>
+    <input name="consumoKw" id="consumoKw" type="text" pattern="[0-9]*" inputmode="numeric" required>
+    <label for="deuda">Deuda:</label>
+    <input name="deuda" id="deuda" type="number" value="0">
+    <button type="submit" id="agregarClienteBtn">Agregar Cliente</button>
+  </form>
+
+  <!-- Buscador para buscar el monto a pagar por cliente -->
+  <label for="buscarCliente">Buscar Cliente:</label>
+  <input type="text" id="buscarCliente" placeholder="Juan Perez, 28131342...">
+  <button type="button" id="cambiarVisibilidad">Mostrar Lista</button>
+  <label for="ordenarCheckbox">Ordenar alfabeticamente</label>
+  <input type="checkbox" id="ordenarCheckbox">
+  <label for="filtrarDeudorCheckbox">Filtrar Deudores</label>
+  <input type="checkbox" id="filtrarDeudorCheckbox">
+
+
+  <!-- Tabla para mostrar la lista de clientes -->
+  <table id="tablaClientes" class="hidden">
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>DNI</th>
+      <th>Tipo de Domicilio</th>
+      <th>Consumo (KW)</th>
+      <th>Deuda</th>
+      <th>Monto a Pagar</th>
+      <th>Acciones</th>
+    </tr>
+  </table>
+</body>
+
+</html>
